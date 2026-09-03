@@ -140,6 +140,11 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${jakarta.variable}`}>
       <head>
         <script
+          dangerouslySetInnerHTML={{
+            __html: `if(typeof window!=='undefined'&&window.location.hostname==='www.zulviq.com'){window.location.replace('https://zulviq.com'+window.location.pathname+window.location.search);}`,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
