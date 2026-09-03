@@ -1,15 +1,22 @@
 const fs = require('fs');
 const path = require('path');
 
-const OWNER = 'mueen357';
-const REPO = 'Zulviq.com-main';
-const TOKEN = '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';
-const BRANCH = 'main';
+const configPath = path.join(__dirname, '..', '.github-sync.json');
+if (!fs.existsSync(configPath)) {
+  console.error('Error: .github-sync.json not found.');
+  process.exit(1);
+}
+
+const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+const OWNER = config.owner;
+const REPO = config.repo;
+const TOKEN = config.token;
+const BRANCH = config.branch || 'main';
 const ROOT_DIR = path.resolve(__dirname, '..');
 
 const headers = {
   'Authorization': `Bearer ${TOKEN}`,
-  'User-Agent': 'Zulviq-Deployment-Bot',
+  'User-Agent': 'Zulviq-Sync-Bot',
   'Accept': 'application/vnd.github.v3+json',
   'Content-Type': 'application/json'
 };
@@ -36,7 +43,8 @@ const IGNORE_PATTERNS = [
   '.DS_Store',
   'npm-debug.log',
   '.env',
-  '.env.local'
+  '.env.local',
+  '.github-sync.json'
 ];
 
 function isIgnored(relPath) {
@@ -89,66 +97,50 @@ async function uploadFileBlob(file) {
   };
 }
 
-async function push() {
-  console.log(`Starting push of Zulviq codebase to https://github.com/${OWNER}/${REPO}...`);
+async function main() {
+  const commitMsg = process.argv.slice(2).join(' ') || `Update Zulviq website (${new Date().toLocaleString('en-PK', { timeZone: 'Asia/Karachi' })})`;
 
-  // Step 1: Check if repository is empty. If empty, initialize it by creating README.md via Contents API
-  let parentCommitSha = null;
-  try {
-    const ref = await api(`/git/ref/heads/${BRANCH}`);
-    parentCommitSha = ref.object.sha;
-    console.log(`Found existing branch ${BRANCH} with commit: ${parentCommitSha}`);
-  } catch (err) {
-    console.log(`Repository is uninitialized. Initializing via Contents API...`);
-    const readmeContent = fs.readFileSync(path.join(ROOT_DIR, 'README.md')).toString('base64');
-    const initRes = await api('/contents/README.md', 'PUT', {
-      message: 'Initial repository setup',
-      content: readmeContent,
-      branch: BRANCH
-    });
-    parentCommitSha = initRes.commit.sha;
-    console.log(`Repository successfully initialized! First commit: ${parentCommitSha}`);
-  }
+  console.log(`Connecting to GitHub (https://github.com/${OWNER}/${REPO})...`);
+  const ref = await api(`/git/ref/heads/${BRANCH}`);
+  const parentCommitSha = ref.object.sha;
 
   const files = getAllFiles(ROOT_DIR);
-  console.log(`Found ${files.length} files to upload (node_modules, .next, and out ignored).`);
+  console.log(`Scanning workspace: found ${files.length} project files.`);
 
   const treeEntries = [];
-  const chunkSize = 5;
+  const chunkSize = 6;
   for (let i = 0; i < files.length; i += chunkSize) {
     const chunk = files.slice(i, i + chunkSize);
     const results = await Promise.all(chunk.map(f => uploadFileBlob(f)));
     treeEntries.push(...results);
-    process.stdout.write(`Uploaded blobs ${Math.min(i + chunkSize, files.length)} / ${files.length}...\r`);
+    process.stdout.write(`Syncing files: ${Math.min(i + chunkSize, files.length)} / ${files.length}...\r`);
   }
-  console.log(`\nAll ${treeEntries.length} blobs uploaded successfully.`);
+  console.log(`\nAll ${treeEntries.length} files prepared.`);
 
-  // Create tree
-  console.log('Creating Git tree...');
+  console.log('Building Git tree...');
   const tree = await api('/git/trees', 'POST', { tree: treeEntries });
-  console.log('Created tree SHA:', tree.sha);
 
-  // Create commit with parent
-  console.log('Creating commit...');
+  console.log(`Committing: "${commitMsg}"...`);
   const commit = await api('/git/commits', 'POST', {
-    message: 'Complete Zulviq Herbal Hair Care E-Commerce Store (Next.js 16, Tailwind CSS, Cloudflare Pages Ready)',
+    message: commitMsg,
     tree: tree.sha,
-    parents: parentCommitSha ? [parentCommitSha] : []
+    parents: [parentCommitSha]
   });
-  console.log('Created commit SHA:', commit.sha);
 
-  // Update ref
-  console.log(`Updating ${BRANCH} ref to commit ${commit.sha}...`);
+  console.log(`Pushing commit ${commit.sha.slice(0, 7)} to branch ${BRANCH}...`);
   await api(`/git/refs/heads/${BRANCH}`, 'PATCH', {
     sha: commit.sha,
     force: true
   });
-  console.log(`Successfully updated branch ${BRANCH}!`);
 
-  console.log(`\n🎉 Code successfully pushed to https://github.com/${OWNER}/${REPO}/tree/${BRANCH}`);
+  console.log('\n======================================================');
+  console.log('✅ PUSH SUCCESSFUL!');
+  console.log(`📦 GitHub: https://github.com/${OWNER}/${REPO}`);
+  console.log(`☁️ Cloudflare will now automatically trigger build & update the live site.`);
+  console.log('======================================================\n');
 }
 
-push().catch(err => {
-  console.error('Fatal error during push:', err);
+main().catch(err => {
+  console.error('Push failed:', err.message);
   process.exit(1);
 });
