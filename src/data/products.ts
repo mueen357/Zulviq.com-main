@@ -162,28 +162,28 @@ export const products: Product[] = [
     ],
     timeline: [
       {
-        period: "Week 1 - 2",
-        title: "Scalp Detox & Hydration",
+        period: "Week 1",
+        title: "Shine & Dandruff Control",
         description:
-          "Scalp dryness, itchiness, and flakes subside. The roots feel deeply nourished, excess oiliness is balanced, and hair feels noticeably softer with a healthy sheen.",
+          "Scalp dryness, flakes, and itchiness subside from the first few uses. Cuticles smooth out, giving dull strands immediate silky shine and soft touch.",
       },
       {
-        period: "Week 3 - 4",
-        title: "Significant Hair Fall Reduction",
+        period: "Week 2 - 3",
+        title: "70% Hair Fall Reduction",
         description:
-          "You will notice far fewer loose strands in your shower drain, comb, and pillow. Follicles grip tighter as the root anchor points regain structural strength.",
+          "Noticeable dramatic drop in shower and comb shedding. Roots grip tighter as cold-pressed botanicals reinforce follicle anchor points.",
       },
       {
-        period: "Week 6 - 8",
-        title: "New Baby Hair & Density",
+        period: "Week 4 - 5",
+        title: "Baby Hairs & Scalp Vitality",
         description:
-          "Fine baby hairs begin sprouting along the hairline, parting line, and crown. Overall hair shaft thickness improves, and hair feels denser when tied.",
+          "Dormant follicles are stimulated. Fine baby hairs start emerging along thinning temples, crown, and hairline with visibly healthier scalp health.",
       },
       {
-        period: "Week 10 - 12+",
-        title: "Full Volume & Long-Term Health",
+        period: "2nd Month (Week 6+)",
+        title: "Root Strength & Full Thickness",
         description:
-          "Noticeable transformation in hair volume, bounce, and strength. Continued maintenance usage keeps the scalp rejuvenated and locks resilient against environmental stress.",
+          "Keratin structure is fortified, significantly reducing strand breakage and split ends. Hair feels noticeably denser, stronger, and fuller.",
       },
     ],
     bundles: [

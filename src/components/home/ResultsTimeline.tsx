@@ -15,7 +15,7 @@ export default function ResultsTimeline() {
             <span>Proven Progress Milestones</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-herbal-950 tracking-tight">
-            What to Expect: Your 90-Day Hair Transformation
+            What to Expect: Your 6-Week Hair Transformation
           </h2>
           <p className="text-sm sm:text-base text-charcoal-700 leading-relaxed">
             Real botanical hair restoration works with your body’s natural biological hair growth cycles.
