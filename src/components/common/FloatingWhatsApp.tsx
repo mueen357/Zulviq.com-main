@@ -8,7 +8,7 @@ export default function FloatingWhatsApp() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center">
+    <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 flex items-center">
       {/* Popover Bubble on Hover / Desktop */}
       <div
         className={`hidden sm:flex items-center mr-3 bg-cream-50 text-herbal-950 text-xs font-semibold px-3.5 py-2 rounded-xl shadow-lg border border-cream-200 transition-all duration-300 ${

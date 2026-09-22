@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/common/Breadcrumbs";
 import ProductGallery from "@/components/product/ProductGallery";
 import ProductInfo from "@/components/product/ProductInfo";
 import ProductTabs from "@/components/product/ProductTabs";
+import MobileStickyBar from "@/components/product/MobileStickyBar";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import FaqSection from "@/components/home/FaqSection";
 import CtaBanner from "@/components/home/CtaBanner";
@@ -157,6 +158,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       {/* Final CTA */}
       <CtaBanner />
+
+      {/* Mobile Sticky COD Order Bar */}
+      <MobileStickyBar product={product} />
     </>
   );
 }

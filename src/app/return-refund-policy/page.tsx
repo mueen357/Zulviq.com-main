@@ -22,7 +22,7 @@ export default function ReturnRefundPolicyPage() {
               Return & Refund Policy
             </h1>
             <p className="text-xs text-charcoal-500 mt-1">
-              Last updated: September 2026 • Template intended for legal review
+              Last updated: September 2026
             </p>
           </div>
 
