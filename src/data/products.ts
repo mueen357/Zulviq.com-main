@@ -269,9 +269,9 @@ export const products: Product[] = [
         rating: 5,
         date: "August 24, 2026",
         verified: true,
-        title: "Hair fall reduced by 80% in just 3 weeks!",
+        title: "3 hafton mein hair fall wazeh tor par ruk gaya!",
         content:
-          "I was dealing with severe postpartum hair fall and had loose strands everywhere. A friend recommended Zulviq, and within 3 weeks of using it twice weekly, my shower drain was practically clear. The non-sticky texture and herbal aroma are so soothing.",
+          "Delivery ke baad mera bohot shadeed hair fall shuru hogaya tha, kangi karte waqt dheron baal aate thay. Zulviq use karte hue abhi sirf 3 hafte huye hain aur shower drain mein baal girna 80% tak kam hogaya hai. Oil bilkul bhi chipchipa nahi hai aur khushbu bohot relaxing aur natural herbal hai.",
       },
       {
         id: "rev-2",
@@ -280,9 +280,9 @@ export const products: Product[] = [
         rating: 5,
         date: "August 18, 2026",
         verified: true,
-        title: "Visible baby hair along my receding temples",
+        title: "Receding hairline aur temples par new baby hair aana shuru",
         content:
-          "As a guy in my late 20s, I noticed my hairline starting to thin out. I ordered the 2-bottle bundle and massage it every alternate night. After 7 weeks, fine new baby hairs have started sprouting along my forehead and temples. Truly natural and genuinely works.",
+          "Mera forehead dono sides se peeche ja raha tha. Maine 2 bottles mangwayi theen aur hafte mein 3 dafa massage kiya. 7 haftay baad sach mein barik baby hairs grow hona shuru hogaye hain. Pakistan mein itna authentic herbal oil pehli dafa dekha hai, highly recommended!",
       },
       {
         id: "rev-3",
@@ -302,9 +302,9 @@ export const products: Product[] = [
         rating: 5,
         date: "July 29, 2026",
         verified: true,
-        title: "Premium packaging, prompt delivery, and amazing results",
+        title: "Packaging luxury hai aur baalon ka jhaarna band hogaya",
         content:
-          "The packaging feels so luxury and high-end! The dropper makes application mess-free. I bought the 3-bottle pack with the free scalp brush and it has transformed my entire hair care routine. Customer service on WhatsApp was super helpful too.",
+          "Parcel 3 din mein safely deliver hogaya tha. Glass dropper ki wajah se oil lagana bohot aasan hai, haath ya kapray kharab nahi hotay. Maine 3-bottle pack liya tha scalp brush ke sath. Baalon ka texture bohot soft hogaya hai aur girna taqreeban band hogaya hai.",
       },
       {
         id: "rev-5",
@@ -316,6 +316,17 @@ export const products: Product[] = [
         title: "Zero chemicals, pure herbal goodness",
         content:
           "You can immediately tell by the authentic herbal color and mild natural aroma that there are no synthetic perfumes or mineral oil fillers here. It rinses off cleanly with mild shampoo without leaving grease. Highly recommended.",
+      },
+      {
+        id: "rev-6",
+        author: "Dr. Sana Mir",
+        city: "Multan",
+        rating: 5,
+        date: "July 04, 2026",
+        verified: true,
+        title: "Truly cold-pressed formulation with visible root strengthening",
+        content:
+          "Most oils in the market are heavily diluted with mineral oil. Zulviq's cold-pressed infusion of Bhringraj and Black Seed genuinely nourishes the follicular sheath. Noticeable reduction in daily shedding within a month.",
       },
     ],
   },
