@@ -17,10 +17,10 @@ export default function StatsSection() {
   const stats: StatItem[] = [
     {
       id: "bottles",
-      value: 35000,
+      value: 2500,
       suffix: "+",
       label: "Bottles Delivered",
-      description: "Across Karachi, Lahore, Islamabad & 120+ cities in Pakistan",
+      description: "Across Karachi, Lahore, Islamabad & 50+ cities in Pakistan",
     },
     {
       id: "rating",
@@ -91,13 +91,16 @@ function Counter({
   isDecimal: boolean;
   start: boolean;
 }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (!start) return;
+    if (!start || hasAnimated) return;
+    setHasAnimated(true);
+    setCount(0);
 
     let startTime: number;
-    const duration = 1800; // ms
+    const duration = 1600; // ms
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
@@ -116,7 +119,7 @@ function Counter({
     };
 
     requestAnimationFrame(animate);
-  }, [start, target]);
+  }, [start, target, hasAnimated]);
 
   if (isDecimal) {
     return <span>{count.toFixed(1)}</span>;

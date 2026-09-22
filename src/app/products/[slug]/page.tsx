@@ -6,7 +6,6 @@ import Breadcrumbs from "@/components/common/Breadcrumbs";
 import ProductGallery from "@/components/product/ProductGallery";
 import ProductInfo from "@/components/product/ProductInfo";
 import ProductTabs from "@/components/product/ProductTabs";
-import RelatedProducts from "@/components/product/RelatedProducts";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import FaqSection from "@/components/home/FaqSection";
 import CtaBanner from "@/components/home/CtaBanner";
@@ -90,8 +89,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
       "@type": "AggregateOffer",
       url: `https://zulviq.com/products/${product.slug}/`,
       priceCurrency: "PKR",
-      lowPrice: product.bundles[2]?.price || product.price,
-      highPrice: product.price,
+      lowPrice: product.price,
+      highPrice: product.bundles[product.bundles.length - 1]?.price || product.price,
       offerCount: product.bundles.length,
       offers: product.bundles.map((bundle) => ({
         "@type": "Offer",
@@ -114,6 +113,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <>
+      {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
@@ -146,9 +146,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="pt-8">
             <ProductTabs product={product} />
           </div>
-
-          {/* Related / Upcoming Products */}
-          <RelatedProducts />
         </div>
       </div>
 
