@@ -89,7 +89,7 @@ export default function Footer() {
               science. Our flagship herbal hair oil combines ancient cold-infusion traditions with potent
               bioactive plant actives to solve root causes of hair loss and promote thick, healthy hair naturally.
             </p>
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col items-start gap-2.5">
               <a
                 href={getWhatsAppGeneralInquiryUrl()}
                 target="_blank"
@@ -98,6 +98,13 @@ export default function Footer() {
               >
                 <PhoneCall className="w-3.5 h-3.5" />
                 Message Us on WhatsApp ({WHATSAPP_DISPLAY_NUMBER})
+              </a>
+              <a
+                href="mailto:zulviqstore@gmail.com"
+                className="inline-flex items-center gap-2 text-xs text-herbal-300 hover:text-gold-300 transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5 text-gold-400" />
+                <span>zulviqstore@gmail.com</span>
               </a>
             </div>
           </div>

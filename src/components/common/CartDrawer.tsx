@@ -8,9 +8,9 @@ import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/lib/utils";
 
 export default function CartDrawer() {
-  const { cart, isCartOpen, setIsCartOpen, removeFromCart, updateQuantity, cartTotal } = useCart();
+  const { cart, isCartOpen, setIsCartOpen, removeFromCart, updateQuantity, cartTotal, cartOriginalTotal, cartDiscount } = useCart();
 
-  const FREE_SHIPPING_THRESHOLD = 3000;
+  const FREE_SHIPPING_THRESHOLD = 2700;
   const freeShippingUnlocked = cartTotal >= FREE_SHIPPING_THRESHOLD;
   const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - cartTotal;
 
@@ -171,6 +171,21 @@ export default function CartDrawer() {
           {cart.length > 0 && (
             <div className="p-5 border-t border-cream-200 bg-cream-50 space-y-3">
               <div className="space-y-1.5 text-xs">
+                <div className="flex justify-between text-charcoal-600">
+                  <span>Regular Total</span>
+                  <span className="font-semibold text-charcoal-500 line-through">
+                    {formatPrice(cartOriginalTotal)}
+                  </span>
+                </div>
+                {cartDiscount > 0 && (
+                  <div className="flex justify-between text-emerald-800 font-semibold bg-emerald-50 px-2.5 py-1.5 rounded-lg border border-emerald-200">
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Special Discount</span>
+                    </span>
+                    <span className="font-bold">-{formatPrice(cartDiscount)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-charcoal-600">
                   <span>Subtotal</span>
                   <span className="font-semibold text-charcoal-900">{formatPrice(cartTotal)}</span>

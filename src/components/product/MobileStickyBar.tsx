@@ -28,6 +28,7 @@ export default function MobileStickyBar({ product }: MobileStickyBarProps) {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -46,10 +47,14 @@ export default function MobileStickyBar({ product }: MobileStickyBarProps) {
     router.push("/checkout");
   };
 
-  if (!isVisible) return null;
-
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-cream-50/95 backdrop-blur-md border-t border-cream-300 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] px-4 py-3 transition-all duration-300 animate-in slide-in-from-bottom">
+    <div
+      className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-cream-50/95 backdrop-blur-md border-t border-cream-300 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] px-4 py-3 transition-all duration-300 ease-in-out ${
+        isVisible
+          ? "translate-y-0 opacity-100 pointer-events-auto"
+          : "translate-y-full opacity-0 pointer-events-none"
+      }`}
+    >
       <div className="max-w-md mx-auto flex items-center justify-between gap-3">
         {/* Price & COD Guarantee Badge */}
         <div className="flex flex-col">

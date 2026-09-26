@@ -12,6 +12,8 @@ interface CartContextType {
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
   cartTotal: number;
+  cartOriginalTotal: number;
+  cartDiscount: number;
   cartCount: number;
   toastMessage: string | null;
   clearToast: () => void;
@@ -98,6 +100,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const cartTotal = cart.reduce((total, item) => total + item.bundle.price * item.quantity, 0);
+  const cartDiscount = cart.length > 0 ? 200 : 0;
+  const cartOriginalTotal = cart.length > 0 ? cartTotal + cartDiscount : 0;
   const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
 
   return (
@@ -111,6 +115,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         isCartOpen,
         setIsCartOpen,
         cartTotal,
+        cartOriginalTotal,
+        cartDiscount,
         cartCount,
         toastMessage,
         clearToast,

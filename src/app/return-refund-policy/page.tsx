@@ -41,7 +41,7 @@ export default function ReturnRefundPolicyPage() {
             </p>
             <ul className="list-disc pl-5 space-y-1 text-charcoal-700">
               <li>Take clear photos of the damaged bottle and outer courier packaging within <strong>48 hours</strong> of delivery.</li>
-              <li>Send the photos along with your Order ID to our WhatsApp hotline at <strong>+92 313 6221191</strong>.</li>
+              <li>Send the photos along with your Order ID to our WhatsApp hotline at <strong>0334 6847116</strong> or email <strong>zulviqstore@gmail.com</strong>.</li>
               <li>We will dispatch a brand-new replacement bottle immediately at zero additional delivery charge.</li>
             </ul>
           </section>
@@ -61,6 +61,16 @@ export default function ReturnRefundPolicyPage() {
             <p>
               Approved refunds are disbursed via Bank Transfer (IBAN), EasyPaisa, or JazzCash within <strong>3 to 5 business days</strong>{" "}
               following inspection of the returned merchandise.
+            </p>
+          </section>
+
+          <section className="space-y-2">
+            <h2 className="font-serif text-lg font-bold text-herbal-900">5. Assistance & Inquiries</h2>
+            <p>
+              For return inquiries or status updates, reach our team via WhatsApp at <strong>0334 6847116</strong> or email us at{" "}
+              <a href="mailto:zulviqstore@gmail.com" className="text-herbal-800 underline font-semibold">
+                zulviqstore@gmail.com
+              </a>.
             </p>
           </section>
         </div>

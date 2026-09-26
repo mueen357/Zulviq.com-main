@@ -59,6 +59,17 @@ export default function TermsOfServicePage() {
               intellectual property of Zulviq and may not be reproduced without written authorization.
             </p>
           </section>
+
+          <section className="space-y-2">
+            <h2 className="font-serif text-lg font-bold text-herbal-900">5. Contact & Support</h2>
+            <p>
+              For legal inquiries, customer rights, or store assistance, please contact us via email at{" "}
+              <a href="mailto:zulviqstore@gmail.com" className="text-herbal-800 underline font-semibold">
+                zulviqstore@gmail.com
+              </a>{" "}
+              or via WhatsApp at <strong>0334 6847116</strong>.
+            </p>
+          </section>
         </div>
       </div>
     </div>

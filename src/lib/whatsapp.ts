@@ -1,8 +1,9 @@
 import { Order } from "@/types";
 import { formatPrice } from "./utils";
 
-export const WHATSAPP_PHONE_NUMBER = "923136221191";
-export const WHATSAPP_DISPLAY_NUMBER = "+92 313 6221191";
+export const WHATSAPP_PHONE_NUMBER = "923346847116";
+export const WHATSAPP_DISPLAY_NUMBER = "0334 6847116";
+export const SUPPORT_EMAIL = "zulviqstore@gmail.com";
 
 export function getWhatsAppDirectOrderUrl(productName: string, bundleName?: string): string {
   const message = bundleName

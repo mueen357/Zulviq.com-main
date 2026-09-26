@@ -20,9 +20,9 @@ import Breadcrumbs from "@/components/common/Breadcrumbs";
 import { getWhatsAppDirectOrderUrl } from "@/lib/whatsapp";
 
 export default function CartPage() {
-  const { cart, removeFromCart, updateQuantity, cartTotal } = useCart();
+  const { cart, removeFromCart, updateQuantity, cartTotal, cartOriginalTotal, cartDiscount } = useCart();
 
-  const FREE_SHIPPING_THRESHOLD = 3000;
+  const FREE_SHIPPING_THRESHOLD = 2700;
   const isFreeShipping = cartTotal >= FREE_SHIPPING_THRESHOLD;
   const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - cartTotal;
   const shippingFee = cart.length === 0 ? 0 : isFreeShipping ? 0 : 199;
@@ -170,6 +170,18 @@ export default function CartPage() {
                 <h2 className="font-serif text-xl font-bold text-herbal-950">Order Summary</h2>
 
                 <div className="space-y-3 text-xs sm:text-sm">
+                  <div className="flex justify-between text-charcoal-700">
+                    <span>Regular Total</span>
+                    <span className="font-medium text-charcoal-500 line-through">
+                      {formatPrice(cartOriginalTotal)}
+                    </span>
+                  </div>
+                  {cartDiscount > 0 && (
+                    <div className="flex justify-between text-emerald-800 font-semibold bg-emerald-50 px-3 py-2 rounded-xl border border-emerald-200">
+                      <span>Special Discount</span>
+                      <span className="font-bold">-{formatPrice(cartDiscount)}</span>
+                    </div>
+                  )}
                   <div className="flex justify-between text-charcoal-700">
                     <span>Subtotal ({cart.reduce((a, b) => a + b.quantity, 0)} items)</span>
                     <span className="font-semibold text-herbal-950">{formatPrice(cartTotal)}</span>

@@ -91,7 +91,7 @@ export default function HeroSection() {
                   {formatPrice(product.originalPrice)}
                 </span>
                 <span className="bg-gold-100 text-gold-800 text-xs font-bold px-2.5 py-1 rounded-full border border-gold-200">
-                  Save {product.discountPercent}% OFF Today
+                  Save Rs. 200 OFF Today
                 </span>
               </div>
 

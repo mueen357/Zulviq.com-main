@@ -62,6 +62,17 @@ export default function PrivacyPolicyPage() {
               disclosure of your personal data.
             </p>
           </section>
+
+          <section className="space-y-2">
+            <h2 className="font-serif text-lg font-bold text-herbal-900">5. Privacy Inquiries</h2>
+            <p>
+              If you have any questions or data requests regarding our Privacy Policy, contact our team at{" "}
+              <a href="mailto:zulviqstore@gmail.com" className="text-herbal-800 underline font-semibold">
+                zulviqstore@gmail.com
+              </a>{" "}
+              or via WhatsApp at <strong>0334 6847116</strong>.
+            </p>
+          </section>
         </div>
       </div>
     </div>

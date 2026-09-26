@@ -24,7 +24,7 @@ interface ProductInfoProps {
 
 export default function ProductInfo({ product }: ProductInfoProps) {
   const [selectedBundle, setSelectedBundle] = useState<Bundle>(
-    product.bundles[1] || product.bundles[0] // Default to 2-bottle bundle (most popular)
+    product.bundles[0] // Default to 1-bottle pack (Rs. 1,499 with Rs. 200 discount)
   );
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();

@@ -40,7 +40,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
 
       {/* Thumbnails Row */}
       {images.length > 1 && (
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-4 gap-2 sm:gap-3">
           {images.map((img, idx) => {
             const isSelected = selectedIndex === idx;
             return (

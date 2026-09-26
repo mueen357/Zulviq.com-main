@@ -5,6 +5,7 @@ import BenefitsSection from "@/components/home/BenefitsSection";
 import IngredientsSection from "@/components/home/IngredientsSection";
 import HowToUseSection from "@/components/home/HowToUseSection";
 import ResultsTimeline from "@/components/home/ResultsTimeline";
+import BeforeAfterSection from "@/components/home/BeforeAfterSection";
 import StatsSection from "@/components/home/StatsSection";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import FaqSection from "@/components/home/FaqSection";
@@ -19,6 +20,7 @@ export default function HomePage() {
       <IngredientsSection />
       <HowToUseSection />
       <ResultsTimeline />
+      <BeforeAfterSection />
       <StatsSection />
       <ReviewsSection />
       <FaqSection />

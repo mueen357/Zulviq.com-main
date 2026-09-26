@@ -25,7 +25,7 @@ import { getWhatsAppOrderConfirmationUrl } from "@/lib/whatsapp";
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { cart, cartTotal, clearCart } = useCart();
+  const { cart, cartTotal, cartOriginalTotal, cartDiscount, clearCart } = useCart();
 
   // Form State
   const [formData, setFormData] = useState<CustomerInfo>({
@@ -46,7 +46,7 @@ export default function CheckoutPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const FREE_SHIPPING_THRESHOLD = 3000;
+  const FREE_SHIPPING_THRESHOLD = 2700;
   const isFreeShipping = cartTotal >= FREE_SHIPPING_THRESHOLD;
   const shippingFee = cart.length === 0 ? 0 : isFreeShipping ? 0 : 199;
   const grandTotal = cartTotal + shippingFee;
@@ -427,10 +427,10 @@ export default function CheckoutPage() {
                         <div className="flex items-center justify-between border-t border-herbal-850/80 pt-2 text-[11px]">
                           <span className="text-herbal-300">Raast / Nayapay / SadaPay:</span>
                           <div className="flex items-center gap-2">
-                            <span className="font-mono font-bold text-gold-300">0313 6221191</span>
+                            <span className="font-mono font-bold text-gold-300">0334 6847116</span>
                             <button
                               type="button"
-                              onClick={() => copyToClipboard("03136221191", "raast")}
+                              onClick={() => copyToClipboard("03346847116", "raast")}
                               className="text-herbal-300 hover:text-gold-300 transition-colors p-1"
                               title="Copy Number"
                             >
@@ -543,6 +543,16 @@ export default function CheckoutPage() {
 
                 {/* Subtotals & Grand Total */}
                 <div className="space-y-2 text-xs pt-3 border-t border-cream-200">
+                  <div className="flex justify-between text-charcoal-700">
+                    <span>Regular Total</span>
+                    <span className="text-charcoal-500 line-through">{formatPrice(cartOriginalTotal)}</span>
+                  </div>
+                  {cartDiscount > 0 && (
+                    <div className="flex justify-between text-emerald-800 font-semibold bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                      <span>Discount Applied</span>
+                      <span className="font-bold">-{formatPrice(cartDiscount)}</span>
+                    </div>
+                  )}
                   <div className="flex justify-between text-charcoal-700">
                     <span>Subtotal</span>
                     <span className="font-semibold text-herbal-950">{formatPrice(cartTotal)}</span>
