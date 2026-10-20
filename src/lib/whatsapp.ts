@@ -3,7 +3,7 @@ import { formatPrice } from "./utils";
 
 export const WHATSAPP_PHONE_NUMBER = "923346847116";
 export const WHATSAPP_DISPLAY_NUMBER = "0334 6847116";
-export const SUPPORT_EMAIL = "zulviqstore@gmail.com";
+export const SUPPORT_EMAIL = "zulviqcare@gmail.com";
 
 export function getWhatsAppDirectOrderUrl(productName: string, bundleName?: string): string {
   const message = bundleName

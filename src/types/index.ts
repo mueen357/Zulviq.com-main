@@ -81,6 +81,7 @@ export interface CartItem {
 export interface CustomerInfo {
   fullName: string;
   phone: string;
+  email?: string;
   address: string;
   city: string;
   province: string;

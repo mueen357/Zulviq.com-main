@@ -119,7 +119,7 @@ export default function RootLayout({
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+923346847116",
-      email: "zulviqstore@gmail.com",
+      email: "zulviqcare@gmail.com",
       contactType: "customer service",
       availableLanguage: ["English", "Urdu"],
     },

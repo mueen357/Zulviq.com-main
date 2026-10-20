@@ -100,11 +100,11 @@ export default function Footer() {
                 Message Us on WhatsApp ({WHATSAPP_DISPLAY_NUMBER})
               </a>
               <a
-                href="mailto:zulviqstore@gmail.com"
+                href="mailto:zulviqcare@gmail.com"
                 className="inline-flex items-center gap-2 text-xs text-herbal-300 hover:text-gold-300 transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-gold-400" />
-                <span>zulviqstore@gmail.com</span>
+                <span>zulviqcare@gmail.com</span>
               </a>
             </div>
           </div>

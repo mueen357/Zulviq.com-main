@@ -69,8 +69,8 @@ export default function ShippingPolicyPage() {
               For Cash on Delivery orders, please ensure the exact payable amount is available when the courier rider arrives.
               Riders are not permitted to open parcels prior to payment collection. If you encounter any issue with your parcel,
               please contact Zulviq customer support on WhatsApp at <strong>0334 6847116</strong> or email us at{" "}
-              <a href="mailto:zulviqstore@gmail.com" className="text-herbal-800 underline font-semibold">
-                zulviqstore@gmail.com
+              <a href="mailto:zulviqcare@gmail.com" className="text-herbal-800 underline font-semibold">
+                zulviqcare@gmail.com
               </a>{" "}
               for prompt resolution.
             </p>

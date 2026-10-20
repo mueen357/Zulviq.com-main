@@ -22,6 +22,7 @@ import { formatPrice } from "@/lib/utils";
 import { Order, CustomerInfo } from "@/types";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import { getWhatsAppOrderConfirmationUrl } from "@/lib/whatsapp";
+import { officialBankDetails } from "@/data/bankDetails";
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -31,6 +32,7 @@ export default function CheckoutPage() {
   const [formData, setFormData] = useState<CustomerInfo>({
     fullName: "",
     phone: "",
+    email: "",
     address: "",
     city: "Lahore",
     province: "Punjab",
@@ -103,6 +105,11 @@ export default function CheckoutPage() {
       return;
     }
 
+    if (paymentMethod === "bank_transfer" && !proofFile) {
+      setErrorMsg("Payment screenshot is required for Bank Transfer. Please upload your transfer receipt before placing the order.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     const orderId = `ZLQ-${Math.floor(10000 + Math.random() * 90000)}`;
@@ -121,20 +128,23 @@ export default function CheckoutPage() {
       createdAt: new Date().toISOString(),
     };
 
-    /*
-     * --------------------------------------------------------------------------
-     * BACKEND INTEGRATION HOOK (FOR PRODUCTION)
-     * --------------------------------------------------------------------------
-     * When ready to connect to a production backend:
-     * 1. Send `newOrder` and `proofFile` to a Cloudflare Worker API endpoint
-     *    (e.g., fetch('/api/orders', { method: 'POST', body: formData }))
-     * 2. Save order in Cloudflare D1 database or PostgreSQL.
-     * 3. Send automated confirmation email using Resend / SendGrid / Postmark.
-     * 4. Upload payment screenshot to Cloudflare R2 bucket.
-     * --------------------------------------------------------------------------
-     */
-
     try {
+      // Send automated email notification with order & screenshot details to zulviqcare@gmail.com
+      try {
+        await fetch("/api/orders", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            order: newOrder,
+            proofBase64: proofPreviewUrl || undefined,
+          }),
+        });
+      } catch (notifyErr) {
+        console.warn("Order email notification background error:", notifyErr);
+      }
+
       // Save order to localStorage for tracking & confirmation display
       localStorage.setItem("zulviq_last_order", JSON.stringify(newOrder));
 
@@ -237,6 +247,19 @@ export default function CheckoutPage() {
 
                   <div className="sm:col-span-2 space-y-1">
                     <label className="block text-xs font-bold text-charcoal-800">
+                      Email Address <span className="text-charcoal-400 font-normal">(Optional — to receive order confirmation & receipt)</span>
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="e.g. yourname@gmail.com"
+                      value={formData.email || ""}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-cream-100/80 border border-cream-300 rounded-xl px-4 py-3 text-xs sm:text-sm text-charcoal-900 focus:outline-none focus:border-gold-500"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-2 space-y-1">
+                    <label className="block text-xs font-bold text-charcoal-800">
                       Complete Street Address <span className="text-red-600">*</span>
                     </label>
                     <input
@@ -327,7 +350,7 @@ export default function CheckoutPage() {
                         <span className="text-xs font-bold text-herbal-950">Direct Bank Transfer</span>
                       </div>
                       <p className="text-[11px] text-charcoal-600 mt-1">
-                        Transfer via Meezan, Nayapay, SadaPay, or Raast & upload receipt.
+                        Transfer via Online Banking, Nayapay, SadaPay, or Raast & upload receipt.
                       </p>
                     </div>
                   </label>
@@ -376,80 +399,102 @@ export default function CheckoutPage() {
                         <Building2 className="w-5 h-5 text-gold-400" />
                       </div>
 
-                      {/* Meezan Bank Details */}
+                      {/* Bank Details */}
                       <div className="space-y-2.5 text-xs">
                         <div className="flex items-center justify-between">
                           <span className="text-herbal-300">Bank:</span>
-                          <span className="font-bold text-cream-50">Meezan Bank Ltd.</span>
+                          <span className="font-bold text-cream-50">{officialBankDetails.bankName}</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-herbal-300">Account Title:</span>
-                          <span className="font-bold text-cream-50">Zulviq Natural Wellness</span>
+                          <span className="font-bold text-cream-50">{officialBankDetails.accountTitle}</span>
                         </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-herbal-300">Account Number:</span>
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono font-bold text-gold-300">0102-0105829102</span>
-                            <button
-                              type="button"
-                              onClick={() => copyToClipboard("01020105829102", "acc")}
-                              className="text-herbal-300 hover:text-gold-300 transition-colors p-1"
-                              title="Copy Account Number"
-                            >
-                              {copiedField === "acc" ? (
-                                <Check className="w-3.5 h-3.5 text-emerald-400" />
-                              ) : (
-                                <Copy className="w-3.5 h-3.5" />
+                        {officialBankDetails.accountNumber && (
+                          <div className="flex items-center justify-between">
+                            <span className="text-herbal-300">Account Number:</span>
+                            <div className="flex items-center gap-2">
+                              <span className="font-mono font-bold text-gold-300">{officialBankDetails.accountNumber}</span>
+                              {officialBankDetails.accountNumberRaw && (
+                                <button
+                                  type="button"
+                                  onClick={() => copyToClipboard(officialBankDetails.accountNumberRaw, "acc")}
+                                  className="text-herbal-300 hover:text-gold-300 transition-colors p-1"
+                                  title="Copy Account Number"
+                                >
+                                  {copiedField === "acc" ? (
+                                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                                  ) : (
+                                    <Copy className="w-3.5 h-3.5" />
+                                  )}
+                                </button>
                               )}
-                            </button>
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-herbal-300">IBAN:</span>
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono text-[11px] font-bold text-gold-300">
-                              PK42MEZN0001020105829102
-                            </span>
-                            <button
-                              type="button"
-                              onClick={() => copyToClipboard("PK42MEZN0001020105829102", "iban")}
-                              className="text-herbal-300 hover:text-gold-300 transition-colors p-1"
-                              title="Copy IBAN"
-                            >
-                              {copiedField === "iban" ? (
-                                <Check className="w-3.5 h-3.5 text-emerald-400" />
-                              ) : (
-                                <Copy className="w-3.5 h-3.5" />
+                        )}
+                        {officialBankDetails.iban && (
+                          <div className="flex items-center justify-between">
+                            <span className="text-herbal-300">IBAN:</span>
+                            <div className="flex items-center gap-2">
+                              <span className="font-mono text-[11px] font-bold text-gold-300">
+                                {officialBankDetails.iban}
+                              </span>
+                              {Boolean(officialBankDetails.ibanRaw) && (
+                                <button
+                                  type="button"
+                                  onClick={() => copyToClipboard(officialBankDetails.ibanRaw || "", "iban")}
+                                  className="text-herbal-300 hover:text-gold-300 transition-colors p-1"
+                                  title="Copy IBAN"
+                                >
+                                  {copiedField === "iban" ? (
+                                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                                  ) : (
+                                    <Copy className="w-3.5 h-3.5" />
+                                  )}
+                                </button>
                               )}
-                            </button>
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex items-center justify-between border-t border-herbal-850/80 pt-2 text-[11px]">
-                          <span className="text-herbal-300">Raast / Nayapay / SadaPay:</span>
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono font-bold text-gold-300">0334 6847116</span>
-                            <button
-                              type="button"
-                              onClick={() => copyToClipboard("03346847116", "raast")}
-                              className="text-herbal-300 hover:text-gold-300 transition-colors p-1"
-                              title="Copy Number"
-                            >
-                              {copiedField === "raast" ? (
-                                <Check className="w-3.5 h-3.5 text-emerald-400" />
-                              ) : (
-                                <Copy className="w-3.5 h-3.5" />
+                        )}
+                        {officialBankDetails.raastNumber && (
+                          <div className="flex items-center justify-between border-t border-herbal-850/80 pt-2 text-[11px]">
+                            <span className="text-herbal-300">Raast / Nayapay / SadaPay:</span>
+                            <div className="flex items-center gap-2">
+                              <span className="font-mono font-bold text-gold-300">{officialBankDetails.raastNumber}</span>
+                              {Boolean(officialBankDetails.raastNumberRaw) && (
+                                <button
+                                  type="button"
+                                  onClick={() => copyToClipboard(officialBankDetails.raastNumberRaw || "", "raast")}
+                                  className="text-herbal-300 hover:text-gold-300 transition-colors p-1"
+                                  title="Copy Number"
+                                >
+                                  {copiedField === "raast" ? (
+                                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                                  ) : (
+                                    <Copy className="w-3.5 h-3.5" />
+                                  )}
+                                </button>
                               )}
-                            </button>
+                            </div>
                           </div>
-                        </div>
+                        )}
+                        {officialBankDetails.subtitle && (
+                          <p className="text-[11px] text-gold-400/90 italic pt-1 border-t border-herbal-850/50">
+                            {officialBankDetails.subtitle}
+                          </p>
+                        )}
                       </div>
                     </div>
 
                     {/* Screenshot Upload Field */}
                     <div className="space-y-2">
-                      <label className="block text-xs font-bold text-charcoal-800">
-                        Upload Payment Screenshot / Transfer Receipt
-                      </label>
+                      <div className="flex items-center justify-between">
+                        <label className="block text-xs font-bold text-charcoal-800">
+                          Upload Payment Screenshot / Transfer Receipt <span className="text-red-600 font-bold">*</span>
+                        </label>
+                        <span className="text-[10px] text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-md font-semibold">
+                          Required for Bank Transfer
+                        </span>
+                      </div>
 
                       {proofPreviewUrl ? (
                         <div className="p-4 rounded-2xl bg-cream-100 border border-cream-300 flex items-center justify-between">

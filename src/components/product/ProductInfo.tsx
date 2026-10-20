@@ -197,7 +197,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
           <span>
-            <strong>Safe Payment Options:</strong> Direct Bank Transfer (Meezan, Nayapay, Raast) & Cash on Delivery.
+            <strong>Safe Payment Options:</strong> Direct Bank Transfer & Cash on Delivery.
           </span>
         </div>
         <div className="flex items-center gap-2">

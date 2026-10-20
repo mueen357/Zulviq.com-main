@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, Suspense } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {
@@ -152,6 +153,21 @@ function OrderConfirmationContent() {
                       {order.paymentMethod === "bank_transfer" ? "Direct Bank Transfer" : "Cash on Delivery"}
                     </span>
                   </div>
+                  {order.paymentProofUrl && (
+                    <div className="pt-3 border-t border-cream-300">
+                      <span className="text-[11px] font-bold text-herbal-900 block mb-2">
+                        Attached Payment Screenshot:
+                      </span>
+                      <div className="relative w-36 h-36 rounded-xl overflow-hidden border border-cream-300 bg-cream-100 shadow-2xs">
+                        <Image
+                          src={order.paymentProofUrl}
+                          alt="Uploaded payment proof"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

@@ -15,45 +15,45 @@ export default function BenefitsSection() {
   const benefits = [
     {
       icon: ShieldAlert,
-      title: "Significantly Reduces Hair Fall",
+      title: "Dandruff Free",
       description:
-        "Strengthens the follicular sheath and anchor points at the dermal papilla, reducing everyday shower and comb shedding by up to 85% within 3 to 4 weeks.",
-      highlight: "85% Less Shedding",
-    },
-    {
-      icon: TrendingUp,
-      title: "Promotes Visible Hair Growth",
-      description:
-        "Infuses roots with botanical growth activators that extend the anagen (growth) cycle and revitalize thinning zones around the temples, crown, and parting.",
-      highlight: "Awakens Dormant Roots",
-    },
-    {
-      icon: Sparkles,
-      title: "Strengthens Roots & Hair Shaft",
-      description:
-        "High concentrations of organic sulfur, essential lipids, and amino acids replenish the hair's natural keratin bonds, preventing brittle breakage and split ends.",
-      highlight: "Reinforced Keratin",
-    },
-    {
-      icon: HeartPulse,
-      title: "Heals & Balances Scalp Health",
-      description:
-        "Potent antifungal and anti-inflammatory extracts eliminate stubborn dandruff, soothe itchiness, and balance excess sebum production without drying out your scalp.",
-      highlight: "Anti-Dandruff & Soothing",
+        "Potent antifungal and antimicrobial botanical extracts clear stubborn flakes, eliminate microbial buildup, and keep your scalp fresh and itch-free.",
+      highlight: "100% Flake Free",
     },
     {
       icon: Sun,
-      title: "Adds Lustrous Natural Shine",
+      title: "Add Shine",
       description:
-        "Smooths roughened cuticles and locks in moisture without feeling heavy or sticky. Transforms dull, frizzy strands into soft, touchable, manageable hair.",
-      highlight: "Non-Greasy Lustre",
+        "Cold-pressed botanical oils seal and nourish roughened hair cuticles, delivering dazzling natural lustre and radiant shine without greasy weight.",
+      highlight: "Lustrous Radiance",
+    },
+    {
+      icon: Sparkles,
+      title: "Strengthen the Hair",
+      description:
+        "High concentrations of organic sulfur, essential lipids, and amino acids fortify keratin bonds from root to tip, preventing split ends and brittle breakage.",
+      highlight: "Keratin Strength",
     },
     {
       icon: Leaf,
-      title: "100% Pure, Zero Chemicals",
+      title: "Smoothness",
       description:
-        "Cold-pressed virgin plant oils and wild-harvested herbs. Formulated without sulfates, parabens, mineral oil, silicones, synthetic fragrances, or animal cruelty.",
-      highlight: "Zero Toxic Additives",
+        "Deeply penetrates and hydrates the hair shaft to eliminate frizz, soften rough texture, and detangle unruly strands for silky, touchable hair.",
+      highlight: "Silky & Frizz-Free",
+    },
+    {
+      icon: TrendingUp,
+      title: "Growth",
+      description:
+        "Revitalizes dormant follicles, extends the anagen (growth) cycle, and accelerates healthy new hair density across thinning temples, crown, and hairline.",
+      highlight: "Active Follicle Growth",
+    },
+    {
+      icon: HeartPulse,
+      title: "Scalp Health",
+      description:
+        "Balances the scalp's delicate microbiome, regulates excess sebum, and improves micro-circulation to create the ideal foundation for strong, enduring hair.",
+      highlight: "Healthy Scalp Biome",
     },
   ];
 

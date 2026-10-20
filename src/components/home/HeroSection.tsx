@@ -46,38 +46,50 @@ export default function HeroSection() {
 
             {/* Sub-headline */}
             <p className="text-base sm:text-lg text-charcoal-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Formulated with cold-pressed <strong className="font-semibold text-herbal-900">Bhringraj</strong>,{" "}
+              Formulated with 10 cold-pressed whole herbs including <strong className="font-semibold text-herbal-900">Bhringraj</strong>,{" "}
               <strong className="font-semibold text-herbal-900">Amla</strong>,{" "}
               <strong className="font-semibold text-herbal-900">Rosemary</strong>, and{" "}
-              <strong className="font-semibold text-herbal-900">Black Seed</strong>. Clinically crafted to halt excessive
-              hair fall within 21 days and awaken dormant follicles for visible, voluminous regrowth.
+              <strong className="font-semibold text-herbal-900">Black Seed</strong>. Crafted to banish dandruff, heal the scalp,
+              strengthen roots, and awaken dormant follicles for thick, resilient hair.
             </p>
 
             {/* Quick Benefits Bullet points */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 max-w-lg mx-auto lg:mx-0 text-left">
-              <div className="flex items-center gap-2 text-xs font-medium text-charcoal-800">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 max-w-xl mx-auto lg:mx-0 text-left">
+              <div className="flex items-center gap-1.5 text-xs font-medium text-charcoal-800">
                 <span className="w-4 h-4 rounded-full bg-herbal-100 text-herbal-800 flex items-center justify-center shrink-0">
                   <Check className="w-3 h-3 stroke-[2.5]" />
                 </span>
-                <span>Drastically curtails shower shedding</span>
+                <span>Dandruff Free</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-medium text-charcoal-800">
+              <div className="flex items-center gap-1.5 text-xs font-medium text-charcoal-800">
                 <span className="w-4 h-4 rounded-full bg-herbal-100 text-herbal-800 flex items-center justify-center shrink-0">
                   <Check className="w-3 h-3 stroke-[2.5]" />
                 </span>
-                <span>Fills sparse temples & hairline</span>
+                <span>Add Shine</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-medium text-charcoal-800">
+              <div className="flex items-center gap-1.5 text-xs font-medium text-charcoal-800">
                 <span className="w-4 h-4 rounded-full bg-herbal-100 text-herbal-800 flex items-center justify-center shrink-0">
                   <Check className="w-3 h-3 stroke-[2.5]" />
                 </span>
-                <span>Heals itchy, flaky & dandruff scalps</span>
+                <span>Strengthen the Hair</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-medium text-charcoal-800">
+              <div className="flex items-center gap-1.5 text-xs font-medium text-charcoal-800">
                 <span className="w-4 h-4 rounded-full bg-herbal-100 text-herbal-800 flex items-center justify-center shrink-0">
                   <Check className="w-3 h-3 stroke-[2.5]" />
                 </span>
-                <span>100% Cold-Pressed, 0% Mineral Oils</span>
+                <span>Silky Smoothness</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs font-medium text-charcoal-800">
+                <span className="w-4 h-4 rounded-full bg-herbal-100 text-herbal-800 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 stroke-[2.5]" />
+                </span>
+                <span>Active Growth</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs font-medium text-charcoal-800">
+                <span className="w-4 h-4 rounded-full bg-herbal-100 text-herbal-800 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 stroke-[2.5]" />
+                </span>
+                <span>Scalp Health</span>
               </div>
             </div>
 

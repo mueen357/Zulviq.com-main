@@ -4,78 +4,83 @@ export const products: Product[] = [
   {
     id: "zulviq-herbal-hair-oil-120ml",
     slug: "zulviq-herbal-hair-oil",
-    name: "Zulviq Herbal Hair Oil",
-    tagline: "Pure Cold-Pressed Botanical Elixir for Visible Hair Growth & Fall Control",
-    badge: "Bestseller — 100% Herbal",
+    name: "Zulviq The Root Reset Organic Hair Oil",
+    tagline: "10 Whole Herbs - Cold-Pressed | Pure Botanical Formula for Rapid Growth & Total Scalp Health",
+    badge: "Bestseller — 100% Organic",
     price: 1499,
     originalPrice: 1699,
     discountPercent: 12,
     rating: 4.9,
     reviewCount: 384,
     inStock: true,
-    volume: "120 ml / 4.05 fl. oz.",
+    volume: "150 ml / 5.1 fl. oz.",
     shortDescription:
-      "A potent Ayurvedic-inspired botanical formulation infused with 14 organic herbs, cold-pressed oils, and pure essential plant actives. Formulated to awaken dormant follicles, drastically reduce hair fall within 21 days, nourish an itchy scalp, and stimulate resilient new hair growth.",
+      "A potent Ayurvedic-inspired botanical formulation infused with 10 cold-pressed whole herbs and pure essential plant actives. Formulated to eliminate dandruff, awaken dormant follicles, drastically reduce hair fall within 21 days, and restore vibrant natural shine and smoothness.",
     fullDescription:
-      "Zulviq Herbal Hair Oil is crafted through an age-old slow infusion process where handpicked medicinal herbs are gently steeped in cold-pressed virgin oils to extract maximum bio-active potency. Free from mineral oils, parabens, silicones, and artificial fragrances, this non-greasy elixir deeply penetrates your scalp to reinforce hair roots, reverse follicle miniaturization, and restore voluminous natural shine for both men and women.",
+      "Zulviq The Root Reset Organic Hair Oil is crafted through an age-old slow infusion process where 10 handpicked medicinal herbs are gently steeped in cold-pressed virgin oils to extract maximum bio-active potency. Made from 100% natural ingredients without mineral oils, parabens, silicones, or artificial fragrances, this non-greasy elixir deeply penetrates the scalp to reinforce hair roots, stimulate new growth, banish dandruff, and impart touchable silky smoothness for both men and women.",
     images: [
       {
         url: "/images/zulviq-bottle-front.jpg",
-        alt: "Zulviq Herbal Hair Oil 120ml Amber Dropper Bottle on Stone Slab",
-        title: "Zulviq Flagship Herbal Hair Oil Bottle",
+        alt: "Zulviq The Root Reset Organic Hair Oil 150ml Bottle on Stone Pedestal",
+        title: "Zulviq Flagship Root Reset Bottle (150ml)",
+      },
+      {
+        url: "/images/zulviq-trio-bundle.jpg",
+        alt: "Zulviq The Root Reset 3-Bottle Supply Bundle with Botanical Herbs",
+        title: "Zulviq 3-Bottle Complete Regrowth Bundle",
+      },
+      {
+        url: "/images/zulviq-herbs-flatlay.jpg",
+        alt: "Zulviq Organic Hair Oil Flatlay with Cold-Pressed Whole Herbs, Black Seed, and Rose Petals",
+        title: "10 Whole Cold-Pressed Medicinal Herbs & Actives",
+      },
+      {
+        url: "/images/zulviq-collage.jpg",
+        alt: "Zulviq Organic Hair Oil Collection Showcase & Application",
+        title: "Zulviq Organic Hair Oil Collection",
       },
       {
         url: "/images/zulviq-before-after.jpg",
         alt: "Zulviq Herbal Hair Oil Real Before and After 6-Week Hair Regrowth Results",
         title: "Visible 6-Week Hair Transformation Before & After",
       },
-      {
-        url: "/images/zulviq-bottle-box.jpg",
-        alt: "Zulviq Herbal Hair Oil with Luxury Forest Green and Gold Foil Packaging Box",
-        title: "Zulviq Bottle & Premium Packaging",
-      },
-      {
-        url: "/images/zulviq-oil-dropper.jpg",
-        alt: "Macro Close-up of Golden Zulviq Herbal Hair Oil Dropper Dispensing Pure Botanical Elixir",
-        title: "Pure Golden Botanical Extract Dropper",
-      },
     ],
     keyBenefits: [
       {
-        title: "Halts Excessive Hair Fall",
+        title: "Dandruff Free",
         description:
-          "Clinically proven botanicals strengthen the dermal papilla, reducing hair shedding by up to 85% within 3 to 4 weeks of regular use.",
+          "Natural antifungal and antimicrobial botanical extracts clear stubborn dandruff, banish white flakes, and calm an itchy scalp from the very first week.",
         icon: "ShieldAlert",
       },
       {
-        title: "Stimulates Rapid New Growth",
+        title: "Add Shine",
         description:
-          "Stimulates scalp micro-circulation and delivers concentrated phytonutrients that awaken dormant follicles to fill sparse areas.",
-        icon: "TrendingUp",
-      },
-      {
-        title: "Deeply Strengthens Roots & Shaft",
-        description:
-          "Rich in organic sulfur, fatty acids, and essential vitamins that reinforce the hair's keratin structure, drastically reducing split ends and breakage.",
-        icon: "Sparkles",
-      },
-      {
-        title: "Heals & Soothes Scalp Health",
-        description:
-          "Natural antibacterial and antifungal properties eliminate dandruff, combat flakes, balance excess sebum, and soothe scalp irritation.",
-        icon: "HeartPulse",
-      },
-      {
-        title: "Restores Natural Lustre & Softness",
-        description:
-          "Replenishes moisture to dry, coarse, or heat-damaged hair without leaving a greasy or heavy residue, leaving locks silky and vibrant.",
+          "Pure cold-pressed botanical oils seal and coat roughened cuticles, delivering brilliant natural shine and radiant lustre without feeling sticky or greasy.",
         icon: "Sun",
       },
       {
-        title: "100% Pure, Zero Chemicals",
+        title: "Strengthen the Hair",
         description:
-          "Formulated with zero sulfates, parabens, phthalates, mineral oils, artificial colours, or synthetic perfumes. Safe for sensitive skin.",
+          "Enriched with plant-derived keratin boosters and essential amino acids that fortify the hair shaft from root to tip, preventing split ends and breakage.",
+        icon: "Sparkles",
+      },
+      {
+        title: "Smoothness",
+        description:
+          "Deeply conditions coarse strands, locks in hydration, and eliminates frizz to leave hair exceptionally soft, silky, detangled, and touchable.",
         icon: "Leaf",
+      },
+      {
+        title: "Growth",
+        description:
+          "Nutrient-dense herbal actives stimulate dermal papilla cells, awakening dormant follicles to accelerate healthy new hair growth and fill thinning areas.",
+        icon: "TrendingUp",
+      },
+      {
+        title: "Scalp Health",
+        description:
+          "Promotes micro-circulation and balances sebum levels to restore the scalp's delicate microbiome, providing the optimal environment for resilient hair.",
+        icon: "HeartPulse",
       },
     ],
     ingredients: [
@@ -221,7 +226,6 @@ export const products: Product[] = [
         savings: 200,
         perBottlePrice: 1632,
         badge: "Best Value — Save Rs. 200",
-        freeGift: "Free Herbal Scalp Stimulator Brush included",
       },
     ],
     faqs: [
@@ -253,7 +257,7 @@ export const products: Product[] = [
       {
         question: "What payment methods do you accept?",
         answer:
-          "We offer convenient Direct Bank Transfer (Meezan Bank, Nayapay, SadaPay, Raast) where you can easily upload your payment screenshot during checkout, as well as Cash on Delivery (COD) for orders placed directly through our WhatsApp hotline.",
+          "We offer convenient Direct Bank Transfer where you can easily upload your payment screenshot during checkout, as well as Cash on Delivery (COD) across Pakistan.",
       },
       {
         question: "What is your return and satisfaction policy?",
@@ -309,7 +313,7 @@ export const products: Product[] = [
         verified: true,
         title: "Packaging luxury hai aur baalon ka jhaarna band hogaya",
         content:
-          "Parcel 3 din mein safely deliver hogaya tha. Dropper ki wajah se oil lagana bohot aasan hai, haath ya kapray kharab nahi hotay. Maine 3-bottle pack liya tha scalp brush ke sath. Baalon ka texture bohot soft hogaya hai aur girna taqreeban band hogaya hai.",
+          "Parcel 3 din mein safely deliver hogaya tha. Dropper ki wajah se oil lagana bohot aasan hai, haath ya kapray kharab nahi hotay. Maine 3-bottle pack liya tha. Baalon ka texture bohot soft hogaya hai aur girna taqreeban band hogaya hai.",
       },
       {
         id: "rev-5",

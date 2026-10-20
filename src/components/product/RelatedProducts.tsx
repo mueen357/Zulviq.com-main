@@ -11,13 +11,6 @@ export default function RelatedProducts() {
       status: "Formulation in Testing — Coming Soon",
       price: "Rs. 1,850",
     },
-    {
-      name: "Zulviq Ayurvedic Scalp Stimulator Brush",
-      category: "Hair Tool",
-      description: "Soft silicone bristles engineered to increase scalp micro-circulation by 300% when used during Zulviq oil massage.",
-      status: "Included FREE in 3-Bottle Bundle",
-      price: "Rs. 950",
-    },
   ];
 
   return (

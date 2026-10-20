@@ -83,10 +83,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-herbal-950">Email Support</h3>
                     <a
-                      href="mailto:zulviqstore@gmail.com"
+                      href="mailto:zulviqcare@gmail.com"
                       className="text-xs font-semibold text-herbal-800 hover:text-gold-600 transition-colors mt-0.5 block"
                     >
-                      zulviqstore@gmail.com
+                      zulviqcare@gmail.com
                     </a>
                     <span className="text-[11px] text-charcoal-500">Replies within 12 business hours</span>
                   </div>
